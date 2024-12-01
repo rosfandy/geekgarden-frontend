@@ -13,14 +13,6 @@ $ git clone https://github.com/rosfandy/geekgarden-frontend.git
 $ npm install
 ```
 
-## Project setup
-```bash
-$ git clone https://github.com/rosfandy/geekgarden-backend.git
-```
-```bash
-$ npm install
-```
-
 ## Run Program Development
 ```bash
 $ npm run dev
