@@ -148,11 +148,11 @@ export function Dashboard() {
                         <table className="min-w-full border-collapse border border-gray-300 mt-4">
                             <thead>
                                 <tr>
-                                    <th className="border border-gray-300 p-2">ID</th>
-                                    <th className="border border-gray-300 p-2">Name</th>
-                                    <th className="border border-gray-300 p-2">Description</th>
-                                    <th className="border border-gray-300 p-2">Stock</th>
-                                    <th className="border border-gray-300 p-2">Actions</th>
+                                    <th className="border border-gray-300 p-2 bg-white">ID</th>
+                                    <th className="border border-gray-300 p-2 bg-white">Name</th>
+                                    <th className="border border-gray-300 p-2 bg-white">Description</th>
+                                    <th className="border border-gray-300 p-2 bg-white">Stock</th>
+                                    <th className="border border-gray-300 p-2 bg-white">Actions</th>
                                 </tr>
                             </thead>
                             {products.length !== 0
@@ -160,32 +160,32 @@ export function Dashboard() {
                                     <tbody>
                                         {products.map(product => (
                                             <tr key={product.id}>
-                                                <td className="border border-gray-300 p-2">{product.id}</td>
-                                                <td className="border border-gray-300 p-2">
+                                                <td className="border border-gray-300 p-2 bg-white">{product.id}</td>
+                                                <td className="border border-gray-300 p-2 bg-white">
                                                     <input
                                                         type="text"
                                                         value={product.name}
                                                         onChange={(e) => handleEditChange(product.id, 'name', e.target.value)}
-                                                        className="borderp-1 w-full"
+                                                        className="border border-1 w-full"
                                                     />
                                                 </td>
-                                                <td className="border border-gray-300 p-2">
+                                                <td className="border border-gray-300 p-2 bg-white">
                                                     <input
                                                         type="text"
                                                         value={product.desc}
                                                         onChange={(e) => handleEditChange(product.id, 'desc', e.target.value)}
-                                                        className="borderp-1 w-full"
+                                                        className="border border-1 w-full"
                                                     />
                                                 </td>
-                                                <td className="border border-gray-300 p-2">
+                                                <td className="border border-gray-300 p-2 bg-white">
                                                     <input
                                                         type="number"
                                                         value={product.stock}
                                                         onChange={(e) => handleEditChange(product.id, 'stock', Number(e.target.value))}
-                                                        className="borderp-1 w-full"
+                                                        className="border border-1 w-full"
                                                     />
                                                 </td>
-                                                <td className="border border-gray-300 p-2">
+                                                <td className="border border-gray-300 p-2 bg-white">
                                                     <button
                                                         onClick={() => handleUpdate(product.id)}
                                                         className="bg-blue-500 text-white py-1 px-2 rounded"
