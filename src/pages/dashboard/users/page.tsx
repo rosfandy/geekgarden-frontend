@@ -83,62 +83,60 @@ export function Users() {
         }
     };
 
-    if (loading) {
-        return <p>Loading users...</p>;
-    }
-
     return (
         <Layout>
             <div className="bg-slate-50 w-full flex justify-center items-center">
-                <div className="w-[50em]">
-                    <h1 className="text-2xl font-bold mb-4">Users</h1>
-                    {error && <p className="text-red-500 py-4">{error}</p>}
-                    <div className="overflow-auto max-h-[80vh]">
-                        <table className="min-w-full border-collapse border border-gray-300">
-                            <thead>
-                                <tr>
-                                    <th className="border border-gray-300 p-2">ID</th>
-                                    <th className="border border-gray-300 p-2">Name</th>
-                                    <th className="border border-gray-300 p-2">Email</th>
-                                    <th className="border border-gray-300 p-2">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {users.map((user, index) => (
-                                    <tr key={user.id} className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                                        <td className="border border-gray-300 p-2">{user.id}</td>
-                                        <td className="border border-gray-300 p-2">
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                defaultValue={user.name}
-                                                onChange={(e) => handleEditChange(e, user.id)}
-                                                className="border border-gray-300 p-1"
-                                            />
-                                        </td>
-                                        <td className="border border-gray-300 p-2">
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                defaultValue={user.email}
-                                                onChange={(e) => handleEditChange(e, user.id)}
-                                                className="border border-gray- 300 p-1"
-                                            />
-                                        </td>
-                                        <td className="border border-gray-300 p-2">
-                                            <button onClick={() => handleUpdateUser(user.id)} className="bg-blue-500 text-white px-2 py-1 rounded">
-                                                <i className="fa-solid fa-save"></i>
-                                            </button>
-                                            <button onClick={() => handleDeleteUser(user.id)} className="bg-red-500 text-white px-2 py-1 rounded ml-2">
-                                                <i className="fa-solid fa-trash"></i>
-                                            </button>
-                                        </td>
+                {loading ? <p>Loading...</p>
+                    : <div className="w-[50em]">
+                        <h1 className="text-2xl font-bold mb-4">Users</h1>
+                        {error && <p className="text-red-500 py-4">{error}</p>}
+                        <div className="overflow-auto max-h-[80vh]">
+                            <table className="min-w-full border-collapse border border-gray-300">
+                                <thead>
+                                    <tr>
+                                        <th className="border border-gray-300 p-2">ID</th>
+                                        <th className="border border-gray-300 p-2">Name</th>
+                                        <th className="border border-gray-300 p-2">Email</th>
+                                        <th className="border border-gray-300 p-2">Actions</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {users.map((user, index) => (
+                                        <tr key={user.id} className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}>
+                                            <td className="border border-gray-300 p-2">{user.id}</td>
+                                            <td className="border border-gray-300 p-2">
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    defaultValue={user.name}
+                                                    onChange={(e) => handleEditChange(e, user.id)}
+                                                    className="border border-gray-300 p-1"
+                                                />
+                                            </td>
+                                            <td className="border border-gray-300 p-2">
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    defaultValue={user.email}
+                                                    onChange={(e) => handleEditChange(e, user.id)}
+                                                    className="border border-gray- 300 p-1"
+                                                />
+                                            </td>
+                                            <td className="border border-gray-300 p-2">
+                                                <button onClick={() => handleUpdateUser(user.id)} className="bg-blue-500 text-white px-2 py-1 rounded">
+                                                    <i className="fa-solid fa-save"></i>
+                                                </button>
+                                                <button onClick={() => handleDeleteUser(user.id)} className="bg-red-500 text-white px-2 py-1 rounded ml-2">
+                                                    <i className="fa-solid fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </Layout>
     );

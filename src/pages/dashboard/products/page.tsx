@@ -88,72 +88,72 @@ export function Products() {
         }));
     };
 
-    if (loading) return <div>Loading...</div>;
-
     return (
         <Layout>
             <div className="bg-slate-50 w-full flex justify-center">
-                <div className="overflow-auto max-h-[80vh] mt-16">
-                    <h1 className="text-2xl font-bold mb-4">Products</h1>
-                    {error && <p className="text-red-500 py-4">{error}</p>}
-                    <table className="min-w-full border-collapse border border-gray-300">
-                        <thead>
-                            <tr>
-                                <th className="border border-gray-300 p-2">ID</th>
-                                <th className="border border-gray-300 p-2">Name</th>
-                                <th className="border border-gray-300 p-2">Owner</th>
-                                <th className="border border-gray-300 p-2">Description</th>
-                                <th className="border border-gray-300 p-2">Stock</th>
-                                <th className="border border-gray-300 p-2">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {products.map((product, index) => (
-                                <tr key={product.id} className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}>
-                                    <td className="border border-gray-300 p-2">{product.id}</td>
-                                    <td className="border border-gray-300 p-2">
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            defaultValue={product.name}
-                                            onChange={(e) => handleInputChange(product.id, 'name', e.target.value)}
-                                            className="border border-gray-300 p-1"
-                                        />
-                                    </td>
-                                    <td className="border border-gray-300 p-2">
-                                        <span className="">{product.owner.name}</span>
-                                    </td>
-                                    <td className="border border-gray-300 p-2">
-                                        <input
-                                            type="text"
-                                            name="desc"
-                                            defaultValue={product.desc}
-                                            onChange={(e) => handleInputChange(product.id, 'desc', e.target.value)}
-                                            className="border border-gray-300 p-1"
-                                        />
-                                    </td>
-                                    <td className="border border-gray-300 p-2">
-                                        <input
-                                            type="number"
-                                            name="stock"
-                                            defaultValue={product.stock}
-                                            onChange={(e) => handleInputChange(product.id, 'stock', Number(e.target.value))}
-                                            className="border border-gray-300 p-1"
-                                        />
-                                    </td>
-                                    <td className="border border-gray-300 p-2">
-                                        <button onClick={() => handleUpdate(product.id)} className="bg-blue-500 text-white px-2 py-1 rounded">
-                                            <i className="fa-solid fa-save"></i>
-                                        </button>
-                                        <button onClick={() => handleDelete(product.id)} className="bg-red-500 text-white px-2 py-1 rounded ml-2">
-                                            <i className="fa-solid fa-trash"></i>
-                                        </button>
-                                    </td>
+                {loading ? <div>Loading...</div>
+                    : <div className="overflow-auto max-h-[80vh] mt-16">
+                        <h1 className="text-2xl font-bold mb-4">Products</h1>
+                        {error && <p className="text-red-500 py-4">{error}</p>}
+                        <table className="min-w-full border-collapse border border-gray-300">
+                            <thead>
+                                <tr>
+                                    <th className="border border-gray-300 p-2">ID</th>
+                                    <th className="border border-gray-300 p-2">Name</th>
+                                    <th className="border border-gray-300 p-2">Owner</th>
+                                    <th className="border border-gray-300 p-2">Description</th>
+                                    <th className="border border-gray-300 p-2">Stock</th>
+                                    <th className="border border-gray-300 p-2">Actions</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                {products.map((product, index) => (
+                                    <tr key={product.id} className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}>
+                                        <td className="border border-gray-300 p-2">{product.id}</td>
+                                        <td className="border border-gray-300 p-2">
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                defaultValue={product.name}
+                                                onChange={(e) => handleInputChange(product.id, 'name', e.target.value)}
+                                                className="border border-gray-300 p-1"
+                                            />
+                                        </td>
+                                        <td className="border border-gray-300 p-2">
+                                            <span className="">{product.owner.name}</span>
+                                        </td>
+                                        <td className="border border-gray-300 p-2">
+                                            <input
+                                                type="text"
+                                                name="desc"
+                                                defaultValue={product.desc}
+                                                onChange={(e) => handleInputChange(product.id, 'desc', e.target.value)}
+                                                className="border border-gray-300 p-1"
+                                            />
+                                        </td>
+                                        <td className="border border-gray-300 p-2">
+                                            <input
+                                                type="number"
+                                                name="stock"
+                                                defaultValue={product.stock}
+                                                onChange={(e) => handleInputChange(product.id, 'stock', Number(e.target.value))}
+                                                className="border border-gray-300 p-1"
+                                            />
+                                        </td>
+                                        <td className="border border-gray-300 p-2">
+                                            <button onClick={() => handleUpdate(product.id)} className="bg-blue-500 text-white px-2 py-1 rounded">
+                                                <i className="fa-solid fa-save"></i>
+                                            </button>
+                                            <button onClick={() => handleDelete(product.id)} className="bg-red-500 text-white px-2 py-1 rounded ml-2">
+                                                <i className="fa-solid fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                }
             </div>
 
         </Layout>

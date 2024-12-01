@@ -57,47 +57,45 @@ export function Profile() {
         }
     };
 
-    if (loading) {
-        return <p>Loading user data...</p>;
-    }
-
     return (
         <Layout>
             <div className="bg-slate-50 w-full flex justify-center">
-                <div className="mt-32">
-                    <div className="bg-white p-8 w-[20em] rounded shadow-sm border">
-                        <h1 className="text-xl font-bold">Profile</h1>
-                        {error && <p className="text-red-500">{error}</p>}
-                        <form onSubmit={handleSubmit} className="mt-4">
-                            <div>
-                                <label className="block mb-2">Name:</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={user?.name || ""}
-                                    onChange={handleChange}
-                                    className="border rounded p-2 w-full"
-                                />
-                            </div>
-                            <div className="mt-4">
-                                <label className="block mb-2">Email:</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={user?.email || ""}
-                                    onChange={handleChange}
-                                    className="border rounded p-2 w-full"
-                                />
-                            </div>
-                            <button
-                                type="submit"
-                                className="mt-4 bg-black text-white py-2 px-4 rounded"
-                            >
-                                Update Profile
-                            </button>
-                        </form>
+                {loading ? <p>Loading...</p>
+                    : <div className="mt-32">
+                        <div className="bg-white p-8 w-[20em] rounded shadow-sm border">
+                            <h1 className="text-xl font-bold">Profile</h1>
+                            {error && <p className="text-red-500">{error}</p>}
+                            <form onSubmit={handleSubmit} className="mt-4">
+                                <div>
+                                    <label className="block mb-2">Name:</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={user?.name || ""}
+                                        onChange={handleChange}
+                                        className="border rounded p-2 w-full"
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <label className="block mb-2">Email:</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={user?.email || ""}
+                                        onChange={handleChange}
+                                        className="border rounded p-2 w-full"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="mt-4 bg-black text-white py-2 px-4 rounded"
+                                >
+                                    Update Profile
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </Layout>
     );
