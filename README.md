@@ -13,9 +13,6 @@ $ git clone https://github.com/rosfandy/geekgarden-frontend.git
 $ npm install
 ```
 
-## Description
-Sebuah sistem CRUD, USER dan PRODUK yang mana sistem memiliki 2 hak akses yaitu admin dan reseller. 
-
 ## Project setup
 ```bash
 $ git clone https://github.com/rosfandy/geekgarden-backend.git
