@@ -1,6 +1,10 @@
 ## Description
 Aplikasi sistem CRUD, USER dan PRODUK yang mana sistem memiliki 2 hak akses yaitu admin dan reseller. 
 
+## Stack
+- Reactjs
+- Vitejs
+
 ## Project setup
 ```bash
 $ git clone https://github.com/rosfandy/geekgarden-frontend.git
