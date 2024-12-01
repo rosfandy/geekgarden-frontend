@@ -4,6 +4,7 @@ Aplikasi sistem CRUD, USER dan PRODUK yang mana sistem memiliki 2 hak akses yait
 ## Stack
 - Reactjs
 - Vitejs
+- Tailwindcss
 
 ## Project setup
 ```bash
